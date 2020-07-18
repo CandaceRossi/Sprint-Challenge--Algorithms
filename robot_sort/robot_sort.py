@@ -96,9 +96,15 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+       #create a cache
+        # robot_cache = [[0 for _ in range(len(l))] for _ in range(len(l))]
 
+        # for col in range(len(l) -1, -1, -1):
+        #     for row in range(len(l)):
+        #         robot_right = 0
+        #         robot_left = 0
+        # if (col != len(l) -1):
+        #     robot_right = robot_cache[row][col+1]
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
