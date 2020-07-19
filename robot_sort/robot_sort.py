@@ -67,14 +67,11 @@ class SortingRobot:
         If the held item's value is equal, return 0.
         If either item is None, return None.
         """
-        if self._item is None or self._list[self._position] is None:
-            return None
-        elif self._item > self._list[self._position]:
-            return 1
-        elif self._item < self._list[self._position]:
-            return -1
-        else:
-            return 0
+        for i in range(0, len(self._list) - 1):
+            for j in range(0, len(self._list)-i-1):
+                if self._list[j] > self._list[j+1]:
+                    self._list[j], self._list[j+1] = self._list[j+1], self._list[j]
+        return self._list
 
     def set_light_on(self):
         """
@@ -96,16 +93,13 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-       #create a cache
-        # robot_cache = [[0 for _ in range(len(l))] for _ in range(len(l))]
-
-        # for col in range(len(l) -1, -1, -1):
-        #     for row in range(len(l)):
-        #         robot_right = 0
-        #         robot_left = 0
-        # if (col != len(l) -1):
-        #     robot_right = robot_cache[row][col+1]
-
+        #bubble
+        for i in range(0, len(self._list) - 1):
+            for j in range(0, len(self._list)-i-1):
+                if self._list[j] > self._list[j+1]:
+                    self._list[j], self._list[j+1]  = self._list[j+1], self._list[j]
+        return self._list
+    
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
